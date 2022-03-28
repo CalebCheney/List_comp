@@ -8,6 +8,8 @@ Odd numbers from the said list:
 [1, 3, 5, 7, 9]
 '''
 import abc
+from operator import truediv
+from sre_parse import SPECIAL_CHARS
 
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -106,11 +108,34 @@ print(abc_list)
 check whether a given string contains a capital letter, a lower case letter, a number and a minimum length of 8 characters.
 (This is like a password verification function, HINT: Python function 'any' may be useful)
 '''
-string = 'Helloword1' #10 characters
+#string = 'Helloword1' #10 characters
 
-password_var = string(filter(lambda password: len(password) >= 8))
+
+
+password = input('Enter Password:')
+    
+
+upper = lambda word: word.isupper()
+lower = lambda word: word.islower()
+num = lambda word: word.isdigit()
+lenght = lambda word: word >= 8
+
+
+
+
+print(any(filter(upper, x)==))
+
+
+'''
+password_var = list(filter(lambda password: len(password) >= 8 in string, string))
+
+if password_var == True:
+    valid_list.append(True)
+else:
+    valid_list.append(False)
 print(password_var)
-
+print(valid_list)
+'''
 
 
 
