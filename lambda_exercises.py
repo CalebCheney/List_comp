@@ -8,6 +8,7 @@ Odd numbers from the said list:
 [1, 3, 5, 7, 9]
 '''
 import abc
+from ast import And
 from operator import truediv
 from sre_parse import SPECIAL_CHARS
 
@@ -108,34 +109,31 @@ print(abc_list)
 check whether a given string contains a capital letter, a lower case letter, a number and a minimum length of 8 characters.
 (This is like a password verification function, HINT: Python function 'any' may be useful)
 '''
-#string = 'Helloword1' #10 characters
 
 
 
-password = input('Enter Password:')
+
+password = input('Enter Password: ')
+
     
 
 upper = lambda word: word.isupper()
 lower = lambda word: word.islower()
 num = lambda word: word.isdigit()
-lenght = lambda word: word >= 8
 
 
+upper_val = any(filter(upper, password))
+lower_val = any(filter(lower, password))
+num_val = any(filter(num, password))
 
 
-print(any(filter(upper, x)==))
-
-
-'''
-password_var = list(filter(lambda password: len(password) >= 8 in string, string))
-
-if password_var == True:
-    valid_list.append(True)
+if upper_val == True and lower_val == True and num_val == True and len(password) >= 8:
+    print('Valid password!')
 else:
-    valid_list.append(False)
-print(password_var)
-print(valid_list)
-'''
+    print('Invalid password, try again')
+
+
+
 
 
 
@@ -150,3 +148,12 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 '''
+
+original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+
+#sorted_tuple = filter(lambda grade: grade[1], original_scores)
+#print(sorted_tuple)
+
+original_scores.sort(key = lambda grade: grade[1])
+
+print(original_scores)
